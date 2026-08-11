@@ -1,24 +1,28 @@
 version: 0.0
 os: linux
+
 files:
   - source: /app
-    destination: /home/ec2-user/app
-file_exists_behavior: OVERWRITE
+    destination: /home/ubuntu/my-new-testing-devops-repository/app
+    file_exists_behavior: OVERWRITE
 
 hooks:
   BeforeInstall:
     - location: scripts/stop_server.sh
       timeout: 60
-      runas: ec2-user
+      runas: ubuntu
+
   AfterInstall:
     - location: scripts/install_dependencies.sh
       timeout: 180
-      runas: ec2-user
+      runas: ubuntu
+
   ApplicationStart:
     - location: scripts/start_server.sh
       timeout: 60
-      runas: ec2-user
+      runas: ubuntu
+
   ValidateService:
     - location: scripts/validate_service.sh
       timeout: 60
-      runas: ec2-user
+      runas: ubuntu
