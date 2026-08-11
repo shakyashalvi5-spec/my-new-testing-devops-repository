@@ -1,0 +1,12 @@
+{
+  "name": "cloudwithshalvi-app",
+  "version": "1.0.0",
+  "description": "Node.js Express app deployed via AWS CodePipeline + CodeDeploy",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
